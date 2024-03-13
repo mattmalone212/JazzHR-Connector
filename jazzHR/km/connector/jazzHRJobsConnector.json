@@ -188,19 +188,19 @@
   "mappings": [
     {
       "header": "Status",
-      "field": "c_status",
+      "field": "jazzHR_status",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Internal Code",
-      "field": "c_internalCode",
+      "field": "jazzHR_internalCode",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Description",
-      "field": "c_jobDescription",
+      "field": "jazzHR_jobDescription",
       "subfieldPath": [
         {
           "name": "json"
@@ -210,13 +210,13 @@
     },
     {
       "header": "Questionnaire",
-      "field": "c_questionnaire",
+      "field": "jazzHR_questionnaire",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Maximum Salary",
-      "field": "c_maximumSalary",
+      "field": "jazzHR_maximumSalary",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
@@ -228,7 +228,7 @@
     },
     {
       "header": "Minimum Salary",
-      "field": "c_minimumSalary",
+      "field": "jazzHR_minimumSalary",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
@@ -240,19 +240,19 @@
     },
     {
       "header": "Send to Job Boards",
-      "field": "c_sendToJobBoards",
+      "field": "jazzHR_sendToJobBoards",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Department",
-      "field": "c_department",
+      "field": "jazzHR_department",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Type",
-      "field": "c_type",
+      "field": "jazzHR_type",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
@@ -264,25 +264,25 @@
     },
     {
       "header": "Hiring Lead",
-      "field": "c_hiringLead",
+      "field": "jazzHR_hiringLead",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Country",
-      "field": "c_jobCountry",
+      "field": "jazzHR_jobCountry",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Board Code",
-      "field": "c_boardCode",
+      "field": "jazzHR_boardCode",
       "subfieldPath": [],
       "clearValueIfBlank": false
     },
     {
       "header": "Notes",
-      "field": "c_notes",
+      "field": "jazzHR_notes",
       "subfieldPath": [
         {
           "name": "json"
