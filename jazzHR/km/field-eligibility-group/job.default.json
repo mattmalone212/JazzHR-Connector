@@ -1,0 +1,22 @@
+{
+  "$id": "job.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Job-default",
+  "entityType": "job",
+  "fields": [
+    "jazzHR_boardCode",
+    "jazzHR_department",
+    "jazzHR_hiringLead",
+    "jazzHR_internalCode",
+    "jazzHR_jobCountry",
+    "jazzHR_jobDescription",
+    "jazzHR_maximumSalary",
+    "jazzHR_minimumSalary",
+    "jazzHR_notes",
+    "jazzHR_questionnaire",
+    "jazzHR_sendToJobBoards",
+    "jazzHR_status",
+    "jazzHR_type"
+  ],
+  "required": []
+}

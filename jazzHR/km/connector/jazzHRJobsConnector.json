@@ -1,0 +1,308 @@
+{
+  "$id": "jazzHR_jobsConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v4",
+  "displayName": "JazzHR Jobs Connector",
+  "entityTypes": [
+    "job"
+  ],
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://api.resumatorapi.com/v1/jobs",
+        "headers": {},
+        "queryParams": {
+          "apikey": "3vakmrZwM0cqan9X6ykKqZsdeQNgye7O"
+        },
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "[*]"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "Entity ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Title",
+        "path": "title"
+      },
+      {
+        "type": "JSON",
+        "header": "Country",
+        "path": "country_id"
+      },
+      {
+        "type": "JSON",
+        "header": "City",
+        "path": "city"
+      },
+      {
+        "type": "JSON",
+        "header": "State",
+        "path": "state"
+      },
+      {
+        "type": "JSON",
+        "header": "Department",
+        "path": "department"
+      },
+      {
+        "type": "JSON",
+        "header": "Description",
+        "path": "description"
+      },
+      {
+        "type": "JSON",
+        "header": "Minimum Salary",
+        "path": "minimum_salary"
+      },
+      {
+        "type": "JSON",
+        "header": "Maximum Salary",
+        "path": "maximum_salary"
+      },
+      {
+        "type": "JSON",
+        "header": "Notes",
+        "path": "notes"
+      },
+      {
+        "type": "JSON",
+        "header": "Date Opened",
+        "path": "original_open_date"
+      },
+      {
+        "type": "JSON",
+        "header": "Type",
+        "path": "type"
+      },
+      {
+        "type": "JSON",
+        "header": "Status",
+        "path": "status"
+      },
+      {
+        "type": "JSON",
+        "header": "Send to Job Boards",
+        "path": "send_to_job_boards"
+      },
+      {
+        "type": "JSON",
+        "header": "Hiring Lead",
+        "path": "hiring_lead"
+      },
+      {
+        "type": "JSON",
+        "header": "Board Code",
+        "path": "board_code"
+      },
+      {
+        "type": "JSON",
+        "header": "Internal Code",
+        "path": "internal_code"
+      },
+      {
+        "type": "JSON",
+        "header": "Questionnaire",
+        "path": "questionnaire"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "mergeColumns": {
+        "inputHeaders": [
+          "City",
+          "State"
+        ],
+        "newColumnHeader": "Location",
+        "delimiter": ", "
+      }
+    },
+    {
+      "convertToRichText": {
+        "inputHeaders": {
+          "headers": [
+            "Description"
+          ]
+        },
+        "inputFormat": "HTML"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Send to Job Boards"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "No answer",
+            "ignoreCase": false
+          }
+        },
+        "replacement": ""
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Send to Job Boards"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "Yes",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "True"
+      }
+    },
+    {
+      "findAndReplace": {
+        "inputHeaders": {
+          "headers": [
+            "Send to Job Boards"
+          ]
+        },
+        "valueToFind": {
+          "plainText": {
+            "value": "No",
+            "ignoreCase": false
+          }
+        },
+        "replacement": "False"
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "header": "Status",
+      "field": "c_status",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Internal Code",
+      "field": "c_internalCode",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Description",
+      "field": "c_jobDescription",
+      "subfieldPath": [
+        {
+          "name": "json"
+        }
+      ],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Questionnaire",
+      "field": "c_questionnaire",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Maximum Salary",
+      "field": "c_maximumSalary",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Date Opened",
+      "field": "datePosted",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Minimum Salary",
+      "field": "c_minimumSalary",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Title",
+      "field": "name",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Send to Job Boards",
+      "field": "c_sendToJobBoards",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Department",
+      "field": "c_department",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Type",
+      "field": "c_type",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Entity ID",
+      "field": "entityId",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Hiring Lead",
+      "field": "c_hiringLead",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Country",
+      "field": "c_jobCountry",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Board Code",
+      "field": "c_boardCode",
+      "subfieldPath": [],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Notes",
+      "field": "c_notes",
+      "subfieldPath": [
+        {
+          "name": "json"
+        }
+      ],
+      "clearValueIfBlank": false
+    },
+    {
+      "header": "Location",
+      "field": "location",
+      "subfieldPath": [
+        {
+          "name": "externalLocation"
+        }
+      ],
+      "clearValueIfBlank": false
+    }
+  ],
+  "comprehensiveModeConfig": {
+    "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+    "actionOnMissingEntities": "DELETE"
+  }
+}

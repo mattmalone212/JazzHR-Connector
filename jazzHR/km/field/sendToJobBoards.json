@@ -1,0 +1,11 @@
+{
+  "$id": "jazzHR_sendToJobBoards",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "displayName": "Send to Job Boards",
+  "group": "NONE",
+  "localization": "PRIMARY_ONLY",
+  "type": {
+    "booleanType": {}
+  },
+  "typeId": "boolean"
+}
