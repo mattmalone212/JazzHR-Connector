@@ -12,7 +12,7 @@
         "url": "https://api.resumatorapi.com/v1/jobs",
         "headers": {},
         "queryParams": {
-          "apikey": "3vakmrZwM0cqan9X6ykKqZsdeQNgye7O"
+          "apikey": "${{apiKey}}"
         },
         "dataFormat": "JSON"
       }
